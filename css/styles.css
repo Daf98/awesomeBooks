@@ -7,18 +7,20 @@
 }
 
 body {
-margin: 0 auto;
+  margin: 0 auto;
 }
 
-h1, h2 {
-  text-align:center;
+h1,
+h2 {
+  text-align: center;
   padding-bottom: 0.7rem;
 }
+
 .bookList {
   display: none;
-  flex-direction:column;
+  flex-direction: column;
   border: 2px solid black;
-  gap:10px;
+  gap: 10px;
   margin: 0 0.5rem;
   padding: 0.5rem 0.5rem;
 }
@@ -28,21 +30,19 @@ h1, h2 {
 }
 
 li {
-list-style: none;
-display:flex;
-justify-content: space-between;
-align-items: center;
-padding: auto 10px;
-
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: auto 10px;
 }
 
 hr {
-  border: .5px solid black;
+  border: 0.5px solid black;
   width: 50%;
   height: 0;
   margin: 25px auto;
 }
-
 
 li:nth-child(odd) {
   background-color: lightgray;
@@ -51,12 +51,13 @@ li:nth-child(odd) {
 .removeButton {
   padding: 0.2rem;
   border: 1px solid black;
-/*   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);  */
+
+  /*   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);  */
 }
 
 form {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   margin: 0 auto;
   align-items: center;
@@ -74,5 +75,5 @@ input {
 }
 
 .li__first {
-  align-self:center;
+  align-self: center;
 }

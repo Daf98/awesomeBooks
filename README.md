@@ -29,6 +29,14 @@ To get a local copy up and running follow these simple steps.
 - Open your console in your folder and run the nex command `. code` to open your vscode editor with awesomeBooks project.
 - Then in index.html you can open with live server.
 
+### Deployment
+
+This project has been deployed using Github page
+
+### Live Demo
+
+[Live Demo Link](https://daf98.github.io/awesomeBooks/)
+
 ## Authors
 
 👤 **Dafne Azzolina**
