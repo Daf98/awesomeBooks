@@ -1,13 +1,13 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Awesome Books
 
-> Portfolio template
+> A Page to add (and remove) books from a list
 
 
 ## Built With
 
-- HTML, CSS
+- HTML, CSS, JS
 - Github
 
 ## Getting Started
@@ -36,6 +36,8 @@
 - GitHub: [@Daf98](https://github.com/Daf98)
 - Twitter: [@dafne_azzolina](https://twitter.com/dafne_azzolina)
 - LinkedIn: [dafne-azzolina](https://www.linkedin.com/in/dafne-azzolina/)
+
+👤 **Dino Quispe**
 
 
 ## Show your support
