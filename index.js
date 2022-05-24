@@ -1,104 +1,80 @@
-//Create an array
-let bookArray = []
+/* eslint-disable no-unused-vars */
 
-//Declare form elements
+// Store array in local storage
+function getBooks() {
+  const books = localStorage.getItem('books');
+  if (books) {
+    return JSON.parse(books);
+  }
+  return [];
+}
+
+// Create actual array
+let bookArray = getBooks();
+
+// Declare elements
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 const formButton = document.querySelector('.button');
-
-const body = document.querySelector('body');
 const bookList = document.querySelector('.bookList');
 
+// Store data in local storage
+function storeBooks() {
+  const stringedBooks = JSON.stringify(bookArray);
+  localStorage.setItem('books', stringedBooks);
+}
 
+// Create new id for each book
+function createId() {
+  if (bookArray.length > 0) {
+    return bookArray[bookArray.length - 1].id + 1;
+  }
+  return 1;
+}
 
+// Create innerHTML
 
-const form = document.querySelector('.form');
+function genBookMarkup({
+  id,
+  titleValue,
+  authorValue,
+}) {
+  return `<li id=${id}><p class="book_title">${titleValue}</p>
+    <p class="book_author">${authorValue}</p>
+    <button class="removeButton" onclick="removeBook(${id})">Remove</button></li>`;
+}
 
-
-//Create an addBook function
+// Create a function that adds books
 function addData(e) {
-    e.preventDefault();
-    console.log("its working")
-    const titleValue = bookTitle.value;
-    const authorValue = bookAuthor.value;
-    let book = {titleValue, authorValue};
-    bookArray.push(book); 
-    console.log(bookArray);
-    body.insertBefore(bookList, form);
-    return bookArray;     
+  e.preventDefault();
+  const titleValue = bookTitle.value;
+  const authorValue = bookAuthor.value;
+  const book = {
+    titleValue,
+    authorValue,
+    id: createId(),
+  };
+  bookArray.push(book);
+  bookList.insertAdjacentHTML('beforeend', genBookMarkup(book));
+  storeBooks();
+  return bookArray;
 }
+formButton.addEventListener('click', addData);
 
-formButton.addEventListener('click', addData)
-
-function renderData(){
-    bookArray.forEach((book)=>{
-        const singleBook = document.createElement('div');
-        singleBook.classList.add('singleBook');
-        singleBook.innerHTML= ` 
-        <p class="book_title">${book.titleValue}</p>
-        <p class="book_author">${book.authorValue}</p>
-        <button class="removeButton">Remove</button>`
-        bookList.appendChild(singleBook);
-    })
-    
+// Create a function that renders the data
+function renderData() {
+  let singleBook = '';
+  bookArray.forEach((book) => {
+    singleBook += genBookMarkup(book);
+  });
+  bookList.innerHTML = singleBook;
 }
+renderData();
 
-formButton.addEventListener('click', renderData)
-
-function removeData(){
-    bookArray.filter((book)=>{
-        
-    })
+// Create a function that removes books
+function removeBook(bookId) {
+  const bookItem = document.getElementById(bookId);
+  bookItem.remove();
+  bookArray = bookArray.filter((book) => book.id !== bookId);
+  storeBooks();
 }
-
-/* 
-const body = document.querySelector('body');
-const bookList = document.createElement('ul');
-bookList.classList.add('bookList');
-
-const form = document.querySelector('.form');
-body.insertBefore(bookList, form);
-
-//Declare form elements
-const bookTitle = document.getElementById('title');
-const bookAuthor = document.getElementById('author');
-const formButton = document.querySelector('.button');
-
-
-
-function storeData() {
-    
-    if (bookTitle && bookAuthor) {
-       const stringedBook = JSON.stringify(book);
-       localStorage.setItem('book', stringedBook);
-    }
-   }
-
-   //formButton.addEventListener('click', storeData);
-
-//Get data
-
-if (localStorage.getItem('book')) {
-    let book = JSON.parse(localStorage.getItem('book'));
-    let title = book.titleValue;
-    let author = book.authorValue
-    console.log("Title: " + title);
-    console.log("Author: " + author);
-}
-
- */
-
-
-/* let book = {bookTitle, bookAuthor}; */
-
-/* function addBooks() {
-    bookArray.push(book);
-    }
-button.addEventListener("click", addBooks); */
-
-//Save to local data
-
-
-
-
-
