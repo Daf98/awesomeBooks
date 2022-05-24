@@ -75,16 +75,12 @@ const formButton = document.querySelector('.form');
 const bookList = document.querySelector('.bookList');
 
 formButton.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const UL = document.querySelector('.bookList');
-  if (UL.textContent === null) return;
-
-  UL.classList.add('active');
-  const book = new Book(bookTitle.value, bookAuthor.value);
-  Render.renderData(book);
-  Storage.storeBooks(book);
-  Render.clearField();
-});
+  e.preventDefault()
+  const book = new Book(bookTitle.value, bookAuthor.value)
+  Render.renderData(book)
+  Storage.storeBooks(book)
+  Render.clearField()
+})
 
 bookList.addEventListener('click', (e) => {
   const removeSingleBook = e.target.parentNode.children[0].textContent;
