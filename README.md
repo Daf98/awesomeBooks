@@ -39,6 +39,7 @@
 
 👤 **Dino Quispe**
 
+- GitHub: [@Ddqarias](https://github.com/dqarias)
 
 ## Show your support
 
