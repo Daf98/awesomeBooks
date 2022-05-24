@@ -4,30 +4,30 @@
 
 > A Page to add (and remove) books from a list
 
-
 ## Built With
 
 - HTML, CSS, JS
 - Github
 
 ## Getting Started
-### To launch the project locally:
-#### Step 1:
-- Clone this repo locally using git in the command line and the following command
- ```bash
- > git clone 
- ```
-- Alternatively, you can just download the complete zip file and extract the folder in your directory
-#### Step 2:
-- In the project directory, you can run:
-```bash
-> cd portfolio
-> code .
-```
-- Then open index.html in a live server.
 
-## Online version
-[Live-Demo]()
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+- Code Editor (e.g. VS Code, Atom)
+- Web browser 
+
+### Setup
+
+ **Step 1: Clone this repo locally using git**
+- Create a folder in your local machine
+- Open your console in your folder and run this command: `git clone https://github.com/Daf98/awesomeBooks.git`
+- Alternatively, you can just download the complete zip file and extract the folder in your directory
+
+ **Step 2: Run in your project directory**
+- Open your console in your folder and run the nex command `. code` to open your vscode editor with awesomeBooks project.
+- Then in index.html you can open with live server.
 
 ## Authors
 
@@ -39,7 +39,15 @@
 
 👤 **Dino Quispe**
 
-- GitHub: [@Ddqarias](https://github.com/dqarias)
+- GitHub: [@dqarias](https://github.com/dqarias)
+- Twitter: [@DinoRonald7](https://twitter.com/DinoRonald7?t=Zanx9DXMEG9C_PNF3woZFg&s=08)
+- LinkedIn: [Dino Quispe](https://www.linkedin.com/in/dino-ronald-quispe-arias-8ba72174/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
 
 ## Show your support
 
@@ -54,3 +62,4 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
