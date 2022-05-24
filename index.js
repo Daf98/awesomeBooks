@@ -1,80 +1,85 @@
 /* eslint-disable no-unused-vars */
-
 // Store array in local storage
-function getBooks() {
-  const books = localStorage.getItem('books');
-  if (books) {
-    return JSON.parse(books);
+class Book{
+  titleValue;
+  authorValue;
+  constructor(titleValue, authorValue){
+    this.titleValue = titleValue;
+    this.authorValue = authorValue;
   }
-  return [];
 }
 
-// Create actual array
-let bookArray = getBooks();
 
-// Declare elements
-const bookTitle = document.getElementById('title');
-const bookAuthor = document.getElementById('author');
-const formButton = document.querySelector('.button');
+class Storage{
+  static getBooks() {
+    let library;
+    if (!localStorage.getItem('library')) {
+      library = []
+    } else {
+      library = JSON.parse(localStorage.getItem('library'))
+    }
+    return library;
+  }
+
+  static storeBooks(book) {
+    const bookArray = Storage.getBooks();
+    bookArray.push(book)
+    localStorage.setItem('library', JSON.stringify(bookArray));
+  }
+
+static removeBook(book) {
+  const bookArray = Storage.getBooks();
+  bookArray.forEach((arr) => {
+    if (`"${arr.titleValue}" by ${arr.authorValue}`.trim() === book.trim()) {
+      bookArray.splice(bookArray.indexOf(arr), 1)
+    }
+  })
+  localStorage.setItem('library', JSON.stringify(bookArray));
+}
+}
+
+class Render{
+  static displayLibrary() {
+    const bookArray = Storage.getBooks()
+    bookArray.forEach((book) => Render.renderData(book))
+  }
+
+  static renderData(book) {
+    const template = `<li>
+    <div class="li__first"> <span>"${book.titleValue}"</span> by <span>${book.authorValue}</span></div>
+    <button class="removeButton">Remove</button>
+    </li>`;
+    document.querySelector('.bookList').insertAdjacentHTML('afterbegin', template)
+  }
+
+  static removUI(book) {
+    if (book.classList.contains('removeButton')) {
+      book.parentNode.remove()
+    }
+  }
+
+  static clearField() {
+    bookTitle.value = '';
+    bookAuthor.value = '';
+  }
+}
+
+Render.displayLibrary()
+const bookTitle = document.querySelector('#title');
+const bookAuthor = document.querySelector('#author');
+const formButton = document.querySelector('.form');
 const bookList = document.querySelector('.bookList');
 
-// Store data in local storage
-function storeBooks() {
-  const stringedBooks = JSON.stringify(bookArray);
-  localStorage.setItem('books', stringedBooks);
-}
+formButton.addEventListener('submit', (e) => {
+e.preventDefault()
+  const book = new Book(bookTitle.value, bookAuthor.value)
+  Render.renderData(book)
+  Storage.storeBooks(book)
+  Render.clearField()
+})
 
-// Create new id for each book
-function createId() {
-  if (bookArray.length > 0) {
-    return bookArray[bookArray.length - 1].id + 1;
-  }
-  return 1;
-}
-
-// Create innerHTML
-
-function genBookMarkup({
-  id,
-  titleValue,
-  authorValue,
-}) {
-  return `<li id=${id}><p class="book_title">${titleValue}</p>
-    <p class="book_author">${authorValue}</p>
-    <button class="removeButton" onclick="removeBook(${id})">Remove</button></li>`;
-}
-
-// Create a function that adds books
-function addData(e) {
-  e.preventDefault();
-  const titleValue = bookTitle.value;
-  const authorValue = bookAuthor.value;
-  const book = {
-    titleValue,
-    authorValue,
-    id: createId(),
-  };
-  bookArray.push(book);
-  bookList.insertAdjacentHTML('beforeend', genBookMarkup(book));
-  storeBooks();
-  return bookArray;
-}
-formButton.addEventListener('click', addData);
-
-// Create a function that renders the data
-function renderData() {
-  let singleBook = '';
-  bookArray.forEach((book) => {
-    singleBook += genBookMarkup(book);
-  });
-  bookList.innerHTML = singleBook;
-}
-renderData();
-
-// Create a function that removes books
-function removeBook(bookId) {
-  const bookItem = document.getElementById(bookId);
-  bookItem.remove();
-  bookArray = bookArray.filter((book) => book.id !== bookId);
-  storeBooks();
-}
+bookList.addEventListener('click', (e) => {
+  const removeSingleBook = e.target.parentNode.children[0].textContent;
+  Render.removUI(e.target)
+  Storage.removeBook(removeSingleBook)
+  })
