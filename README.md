@@ -43,13 +43,6 @@ To get a local copy up and running follow these simple steps.
 - Twitter: [@DinoRonald7](https://twitter.com/DinoRonald7?t=Zanx9DXMEG9C_PNF3woZFg&s=08)
 - LinkedIn: [Dino Quispe](https://www.linkedin.com/in/dino-ronald-quispe-arias-8ba72174/)
 
-👤  **Owoeye Olaoluwa (Olamarx)**
-
-- GitHub: [@githubhandle](https://github.com/Olamarx)
-- Twitter: [@twitterhandle](https://twitter.com/Owoeye0laoluwa)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/olaoluwa-owoeye-617702162/)
-- Facebook: [Facebook](https://web.facebook.com/olaoluwa.owoeye.39)
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
