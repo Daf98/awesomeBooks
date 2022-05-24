@@ -71,7 +71,7 @@ const formButton = document.querySelector('.form');
 const bookList = document.querySelector('.bookList');
 
 formButton.addEventListener('submit', (e) => {
-e.preventDefault()
+  e.preventDefault()
   const book = new Book(bookTitle.value, bookAuthor.value)
   Render.renderData(book)
   Storage.storeBooks(book)
