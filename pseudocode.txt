@@ -1,0 +1,7 @@
+1. Create an array X
+2. Create a function  addBook() X
+3. Create a function removeBook()
+4. Create a funtion renderBooks() X
+5. EventListener for addBook and renderBooks() X
+6. EventListener for removeBook() X
+7. Use LocalStorage X
