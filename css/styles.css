@@ -14,13 +14,17 @@ h1, h2 {
   text-align:center;
   padding-bottom: 0.7rem;
 }
-ul {
-  display:flex;
+.bookList {
+  display: none;
   flex-direction:column;
   border: 2px solid black;
   gap:10px;
   margin: 0 0.5rem;
   padding: 0.5rem 0.5rem;
+}
+
+.bookList.active {
+  display: flex;
 }
 
 li {
@@ -33,7 +37,7 @@ padding: auto 10px;
 }
 
 hr {
-  border: 1px solid black;
+  border: .5px solid black;
   width: 50%;
   height: 0;
   margin: 25px auto;
