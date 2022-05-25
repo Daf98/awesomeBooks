@@ -1,5 +1,3 @@
-/* stylelint-disable */
-
 *,
 *::before,
 *::after {
@@ -17,11 +15,12 @@ h2 {
   text-align: center;
   padding-bottom: 0.7rem;
 }
+
 .bookList {
   display: none;
-  flex-direction:column;
+  flex-direction: column;
   border: 2px solid black;
-  gap:10px;
+  gap: 10px;
   margin: 0 0.5rem;
   padding: 0.5rem 0.5rem;
 }
@@ -39,7 +38,7 @@ li {
 }
 
 hr {
-  border: .5px solid black;
+  border: 0.5px solid black;
   width: 50%;
   height: 0;
   margin: 25px auto;
