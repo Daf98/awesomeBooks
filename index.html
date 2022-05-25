@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,23 @@
     <link rel="stylesheet" href="./css/styles.css">
     <title>Awesome Books</title>
 </head>
+
 <body>
-<h1>Awesome Books</h1>
-<ul class="bookList">
- 
-</ul>
-<form class="form">
-    <input type="text" name="title" id="title" placeholder="Title">
-    <br>
-    <input type="text" name="author" id="author" placeholder="Author">
-    <button type="submit" class="button">Add</button>
-</form>
+    <h1>All Awesome Books</h1>
+    <ul class="bookList">
 
-
-
-
-
-<script src="index.js"></script>
+    </ul>
+    <hr>
+    <h2>Add a new book</h2>
+    <form class="form">
+        <input type="text" name="title" id="title" placeholder="Title" required>
+        <input type="text" name="author" id="author" placeholder="Author" required>
+        <button type="submit" class="button">Add</button>
+    </form>
+    <script src="./books.js"></script>
+    <script src="./storage.js"></script>
+    <script src="./render.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
