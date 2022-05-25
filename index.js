@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 Render.displayLibrary();
 
 const bookTitle = document.querySelector('#title');
@@ -23,29 +26,29 @@ bookList.addEventListener('click', (e) => {
   Render.removUI(e.target);
   Storage.removeBook(removeSingleBook);
 });
-//DIVs
+// DIVs
 const listOfBooks = document.querySelector('.list-of-books');
 const addBooks = document.querySelector('.form');
 const contactInfo = document.querySelector('.contact-info');
-//nav bar links
+// nav bar links
 const listLi = document.querySelector('.list-li');
 const addLi = document.querySelector('.add-li');
 const contactLi = document.querySelector('.contact-li');
 
-listLi.addEventListener("click", () => {
+listLi.addEventListener('click', () => {
   listOfBooks.classList.add('active');
   addBooks.classList.add('active');
   contactInfo.classList.remove('active');
-})
+});
 
-addLi.addEventListener("click", () => {
+addLi.addEventListener('click', () => {
   addBooks.classList.remove('active');
   listOfBooks.classList.remove('active');
   contactInfo.classList.remove('active');
-})
+});
 
-contactLi.addEventListener("click", () => {
+contactLi.addEventListener('click', () => {
   contactInfo.classList.add('active');
   addBooks.classList.add('active');
   listOfBooks.classList.remove('active');
-})
+});

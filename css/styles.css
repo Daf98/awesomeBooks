@@ -28,8 +28,8 @@ footer {
   justify-content: flex-start;
   align-items: center;
   padding-left: 0.5rem;
-
 }
+
 .bookList {
   display: none;
   flex-direction: column;
@@ -67,7 +67,6 @@ hr {
   border: 1px solid black;
 }
 
-
 input {
   height: 30px;
   border: 3px solid black;
@@ -82,18 +81,19 @@ input {
   align-self: center;
 }
 
-.list-li, .add-li, .contact-li {
+.list-li,
+.add-li,
+.contact-li {
   cursor: pointer;
 }
 
 .nav-bar {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   margin: 0.5rem  0.5rem;
   padding: 0 10px;
   align-items: center;
   border: 1px solid black;
-
 }
 
 .date {
@@ -102,18 +102,18 @@ input {
 }
 
 .nav-list {
-  display:flex;
+  display: flex;
   gap: 1rem;
   list-style: none;
 }
 
 .nav-title {
-  padding:0;
+  padding: 0;
 }
 
 .list-of-books {
-display:none;
-flex-direction: column;
+  display: none;
+  flex-direction: column;
 }
 
 .form {
@@ -128,19 +128,20 @@ flex-direction: column;
 .form.active {
   display: none;
 }
+
 .list-of-books.active {
-  display:flex;
+  display: flex;
 }
 
 .contact-info {
-  display:none;
-  height:400px;
+  display: none;
+  height: 400px;
   flex-direction: column;
   align-items: center;
 }
 
 .contact-info.active {
-  display:flex;
+  display: flex;
 }
 
 .contact-info h3 {
