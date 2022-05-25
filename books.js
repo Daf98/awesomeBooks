@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-use-before-define */
 class Book {
     titleValue;
 
@@ -9,4 +7,4 @@ class Book {
       this.titleValue = titleValue;
       this.authorValue = authorValue;
     }
-}
+  }
