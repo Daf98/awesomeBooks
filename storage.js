@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 class Storage {
   static getBooks() {

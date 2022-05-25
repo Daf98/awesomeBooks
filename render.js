@@ -1,7 +1,5 @@
-/* eslint-disable no-use-before-define */
-const bookTitle = document.querySelector('#title');
-const bookAuthor = document.querySelector('#author');
-
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class Render {
   static displayLibrary() {
     const bookArray = Storage.getBooks();
@@ -9,7 +7,7 @@ class Render {
   }
 
   static renderData(book) {
-    const template = `<li>
+    const template = `<li class="render-li">
       <div class="li__first"> <span>"${book.titleValue}"</span> by <span>${book.authorValue}</span></div>
       <button class="removeButton">Remove</button>
       </li>`;
@@ -27,5 +25,3 @@ class Render {
     bookAuthor.value = '';
   }
 }
-
-Render.displayLibrary();
