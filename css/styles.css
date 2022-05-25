@@ -16,6 +16,10 @@ h2 {
   padding-bottom: 0.7rem;
 }
 
+footer {
+  border: 1px solid black;
+  clear:both;
+}
 .bookList {
   display: none;
   flex-direction: column;
@@ -29,7 +33,7 @@ h2 {
   display: flex;
 }
 
-li {
+.render-li {
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -44,7 +48,7 @@ hr {
   margin: 25px auto;
 }
 
-li:nth-child(odd) {
+.render-li:nth-child(odd) {
   background-color: lightgray;
 }
 
@@ -76,4 +80,44 @@ input {
 
 .li__first {
   align-self: center;
+}
+
+.nav-bar {
+  display:flex;
+  justify-content: space-between;
+  margin: 0 10px;
+  align-items: center;
+}
+
+.nav-list {
+  display:flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav-title {
+  padding:0;
+}
+
+.list-of-books {
+display:none;
+}
+
+.list-of-books.active {
+  display:block;
+}
+.add-book {
+  display:none;
+}
+
+.add-book.active {
+  display:flex;
+}
+.contact-info {
+  display:none;
+  height:400px;
+}
+
+.contact-info.active {
+  display:block;
 }

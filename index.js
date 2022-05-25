@@ -1,80 +1,50 @@
-/* eslint-disable no-unused-vars */
+Render.displayLibrary();
 
-// Store array in local storage
-function getBooks() {
-  const books = localStorage.getItem('books');
-  if (books) {
-    return JSON.parse(books);
-  }
-  return [];
-}
-
-// Create actual array
-let bookArray = getBooks();
-
-// Declare elements
-const bookTitle = document.getElementById('title');
-const bookAuthor = document.getElementById('author');
-const formButton = document.querySelector('.button');
+const bookTitle = document.querySelector('#title');
+const bookAuthor = document.querySelector('#author');
+const formButton = document.querySelector('.form');
 const bookList = document.querySelector('.bookList');
 
-// Store data in local storage
-function storeBooks() {
-  const stringedBooks = JSON.stringify(bookArray);
-  localStorage.setItem('books', stringedBooks);
-}
-
-// Create new id for each book
-function createId() {
-  if (bookArray.length > 0) {
-    return bookArray[bookArray.length - 1].id + 1;
-  }
-  return 1;
-}
-
-// Create innerHTML
-
-function genBookMarkup({
-  id,
-  titleValue,
-  authorValue,
-}) {
-  return `<li id=${id}><p class="book_title">${titleValue}</p>
-    <p class="book_author">${authorValue}</p>
-    <button class="removeButton" onclick="removeBook(${id})">Remove</button></li>`;
-}
-
-// Create a function that adds books
-function addData(e) {
+formButton.addEventListener('submit', (e) => {
   e.preventDefault();
-  const titleValue = bookTitle.value;
-  const authorValue = bookAuthor.value;
-  const book = {
-    titleValue,
-    authorValue,
-    id: createId(),
-  };
-  bookArray.push(book);
-  bookList.insertAdjacentHTML('beforeend', genBookMarkup(book));
-  storeBooks();
-  return bookArray;
-}
-formButton.addEventListener('click', addData);
+  const UL = document.querySelector('.bookList');
+  if (UL.textContent === null) return;
 
-// Create a function that renders the data
-function renderData() {
-  let singleBook = '';
-  bookArray.forEach((book) => {
-    singleBook += genBookMarkup(book);
-  });
-  bookList.innerHTML = singleBook;
-}
-renderData();
+  UL.classList.add('active');
+  const book = new Book(bookTitle.value, bookAuthor.value);
+  Render.renderData(book);
+  Storage.storeBooks(book);
+  Render.clearField();
+});
 
-// Create a function that removes books
-function removeBook(bookId) {
-  const bookItem = document.getElementById(bookId);
-  bookItem.remove();
-  bookArray = bookArray.filter((book) => book.id !== bookId);
-  storeBooks();
-}
+bookList.addEventListener('click', (e) => {
+  const removeSingleBook = e.target.parentNode.children[0].textContent;
+  Render.removUI(e.target);
+  Storage.removeBook(removeSingleBook);
+});
+//DIVs
+const listOfBooks = document.querySelector('.list-of-books');
+const addBooks = document.querySelector('.add-book');
+const contactInfo = document.querySelector('.contact-info');
+//nav bar links
+const listLi = document.querySelector('.list-li');
+const addLi = document.querySelector('.add-li');
+const contactLi = document.querySelector('.contact-li');
+
+listLi.addEventListener("click", () => {
+  listOfBooks.classList.add('active');
+  addBooks.classList.remove('active');
+  contactInfo.classList.remove('active');
+})
+
+addLi.addEventListener("click", () => {
+  addBooks.classList.add('active');
+  listOfBooks.classList.remove('active');
+  contactInfo.classList.remove('active');
+})
+
+contactLi.addEventListener("click", () => {
+  contactInfo.classList.add('active');
+  addBooks.classList.remove('active');
+  listOfBooks.classList.remove('active');
+})
