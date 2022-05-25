@@ -9,11 +9,11 @@ class Render {
   }
 
   static renderData(book) {
-    const template = `<li>
-      <div class="li__first"> <span>"${book.titleValue}"</span> by <span>${book.authorValue}</span></div>
-      <button class="removeButton">Remove</button>
-      </li>`;
-    document.querySelector('.bookList').insertAdjacentHTML('afterbegin', template);
+    const template = `<li class="render-li">
+    <div class="li__first"> <span>"${book.titleValue}"</span> by <span>${book.authorValue}</span></div>
+    <button class="removeButton">Remove</button>
+    </li>`;
+  document.querySelector('.bookList').insertAdjacentHTML('afterbegin', template);
   }
 
   static removUI(book) {
@@ -23,9 +23,7 @@ class Render {
   }
 
   static clearField() {
-    bookTitle.value = '';
-    bookAuthor.value = '';
+  bookTitle.value = '';
+  bookAuthor.value = '';
   }
 }
-
-Render.displayLibrary();
