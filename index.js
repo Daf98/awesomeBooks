@@ -28,7 +28,7 @@ bookList.addEventListener('click', (e) => {
 });
 // DIVs
 const listOfBooks = document.querySelector('.list-of-books');
-const addBooks = document.querySelector('.form');
+const bookForm = document.querySelector('.form');
 const contactInfo = document.querySelector('.contact-info');
 // nav bar links
 const listLi = document.querySelector('.list-li');
@@ -37,18 +37,21 @@ const contactLi = document.querySelector('.contact-li');
 
 listLi.addEventListener('click', () => {
   listOfBooks.classList.add('active');
-  addBooks.classList.add('active');
+  bookForm.classList.add('inactive');
   contactInfo.classList.remove('active');
 });
 
 addLi.addEventListener('click', () => {
-  addBooks.classList.remove('active');
+  bookForm.classList.remove('inactive');
   listOfBooks.classList.remove('active');
   contactInfo.classList.remove('active');
 });
 
 contactLi.addEventListener('click', () => {
   contactInfo.classList.add('active');
-  addBooks.classList.add('active');
+  bookForm.classList.add('inactive');
   listOfBooks.classList.remove('active');
 });
+
+const dynamicDate = document.querySelector('.date');
+dynamicDate.textContent = new Date().toLocaleString();
