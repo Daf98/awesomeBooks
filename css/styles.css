@@ -116,6 +116,10 @@ input {
   flex-direction: column;
 }
 
+.list-of-books.active {
+  display: flex;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -125,12 +129,8 @@ input {
   gap: 0.5rem;
 }
 
-.form.active {
+.form.inactive {
   display: none;
-}
-
-.list-of-books.active {
-  display: flex;
 }
 
 .contact-info {
