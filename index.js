@@ -19,16 +19,23 @@ class Store {
     localStorage.setItem('books', stringedBooks);
   }
 }
+let bookArray = Store.getBooks();
+console.log(bookArray)
 // BOOKS //
 class Books {
   constructor(bookTitle, bookAuthor) {
+    this.bookTitle = bookTitle;
+    this.bookAuthor = bookAuthor;
+    // Create actual array
+  }
+  
+  /* constructor(bookTitle, bookAuthor) {
     bookTitle.value = this.titleValue;
     bookAuthor.value = this.authorValue;
     
     // Create actual array
     this.bookArray = Store.getBooks();
-  }
-  
+  } */
   
   // Create new id for each book
   static createId() {
@@ -40,17 +47,21 @@ class Books {
 
   // Create a function that adds books
   static addData(e) {
-
     e.preventDefault();
-    const titleValue = bookTitle.value;
-    const authorValue = bookAuthor.value;
+    this.bookTitle = bookTitle.value;
+    this.bookAuthor=bookAuthor.value;
+    let title = this.bookTitle;
+    let author = this.bookAuthor;
+    
+    /* const titleValue = bookTitle.value;
+    const authorValue = bookAuthor.value; */
     let book = {
-      titleValue,
-      authorValue,
+      title,
+      author,
       id: Books.createId(),
     };
-    this.bookArray.push(book);
-    bookList.insertAdjacentHTML('beforeend', genBookMarkup(book));
+    bookArray.push(book);
+    bookList.insertAdjacentHTML('beforeend', Render.genBookMarkup(book));
     Store.storeBooks();
     return bookArray;
   }
@@ -70,20 +81,20 @@ class Render {
 
   static genBookMarkup({
     id,
-    titleValue,
-    authorValue,
+    title,
+    author,
   }) {
-    return `<li id=${id}><p class="book_title">${titleValue}</p>
-    <p class="book_author">${authorValue}</p>
-    <button class="removeButton" onclick="removeBook(${id})">Remove</button></li>`;
+    return `<li id=${id}><p class="book_title">${title}</p>
+    <p class="book_author">${author}</p>
+    <button class="removeButton" onclick="Books.removeBook(${id})">Remove</button></li>`;
   }
   // Create a function that renders the data
   static renderData() {
     let singleBook = '';
-    Books.bookArray.forEach((book) => {
-      singleBook += genBookMarkup(book);
+    bookArray.forEach((book) => {
+      singleBook += Render.genBookMarkup(book);
     });
     bookList.innerHTML = singleBook;
   }
 }
-// Render.renderData();
+Render.renderData();
