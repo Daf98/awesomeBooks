@@ -1,13 +1,23 @@
 /* eslint-disable no-unused-vars */
 
-// Store array in local storage
-function getBooks() {
-  const books = localStorage.getItem('books');
-  if (books) {
-    return JSON.parse(books);
+
+class Store {
+  constructor() {}
+  // Store array in local storage
+  getBooks() {
+    const books = localStorage.getItem('books');
+    if (books) {
+      return JSON.parse(books);
+    }
+    return [];
   }
-  return [];
+// Store data in local storage
+ storeBooks() {
+  const stringedBooks = JSON.stringify(bookArray);
+  localStorage.setItem('books', stringedBooks);
 }
+}
+
 
 // Create actual array
 let bookArray = getBooks();
@@ -18,11 +28,7 @@ const bookAuthor = document.getElementById('author');
 const formButton = document.querySelector('.button');
 const bookList = document.querySelector('.bookList');
 
-// Store data in local storage
-function storeBooks() {
-  const stringedBooks = JSON.stringify(bookArray);
-  localStorage.setItem('books', stringedBooks);
-}
+
 
 // Create new id for each book
 function createId() {
