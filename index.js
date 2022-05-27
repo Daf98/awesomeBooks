@@ -5,7 +5,7 @@ const formButton = document.querySelector('.button');
 const bookList = document.querySelector('.bookList');
 // STORE //
 class Store {
-  // Store array in local storage
+  // Get books from local storage
   static getBooks() {
     const books = localStorage.getItem('books');
     if (books) {
@@ -13,29 +13,21 @@ class Store {
     }
     return [];
   }
-  // Store data in local storage
+  
+  // Store books in local storage
   static storeBooks() {
     const stringedBooks = JSON.stringify(bookArray);
     localStorage.setItem('books', stringedBooks);
   }
 }
 let bookArray = Store.getBooks();
-console.log(bookArray)
+
 // BOOKS //
 class Books {
   constructor(bookTitle, bookAuthor) {
     this.bookTitle = bookTitle;
     this.bookAuthor = bookAuthor;
-    // Create actual array
   }
-  
-  /* constructor(bookTitle, bookAuthor) {
-    bookTitle.value = this.titleValue;
-    bookAuthor.value = this.authorValue;
-    
-    // Create actual array
-    this.bookArray = Store.getBooks();
-  } */
   
   // Create new id for each book
   static createId() {
@@ -49,12 +41,10 @@ class Books {
   static addData(e) {
     e.preventDefault();
     this.bookTitle = bookTitle.value;
-    this.bookAuthor=bookAuthor.value;
+    this.bookAuthor = bookAuthor.value;
     let title = this.bookTitle;
     let author = this.bookAuthor;
-    
-    /* const titleValue = bookTitle.value;
-    const authorValue = bookAuthor.value; */
+ 
     let book = {
       title,
       author,
@@ -63,7 +53,9 @@ class Books {
     bookArray.push(book);
     bookList.insertAdjacentHTML('beforeend', Render.genBookMarkup(book));
     Store.storeBooks();
+    Render.clearField();
     return bookArray;
+    
   }
   // Create a function that removes books
   static removeBook(bookId) {
@@ -71,6 +63,7 @@ class Books {
     bookItem.remove();
     bookArray = bookArray.filter((book) => book.id !== bookId);
     Store.storeBooks();
+    
   }
 }
 formButton.addEventListener('click', Books.addData);
@@ -88,7 +81,7 @@ class Render {
     <p class="book_author">${author}</p>
     <button class="removeButton" onclick="Books.removeBook(${id})">Remove</button></li>`;
   }
-  // Create a function that renders the data
+  // Create a function that renders the books
   static renderData() {
     let singleBook = '';
     bookArray.forEach((book) => {
@@ -96,5 +89,10 @@ class Render {
     });
     bookList.innerHTML = singleBook;
   }
+  static clearField() {
+    bookTitle.value = '';
+    bookAuthor.value = '';
+  }
+
 }
 Render.renderData();
