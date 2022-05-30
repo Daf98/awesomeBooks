@@ -1,5 +1,6 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import Storage from './storage.js';
+import Book from './books.js';
+
 class Render {
   static displayLibrary() {
     const bookArray = Storage.getBooks();
@@ -21,7 +22,8 @@ class Render {
   }
 
   static clearField() {
-    bookTitle.value = '';
-    bookAuthor.value = '';
+    Book.titleValue = '';
+    Book.authorValue = '';
   }
 }
+export default Render;
