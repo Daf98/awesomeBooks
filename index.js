@@ -1,14 +1,18 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import Book from './modules/books.js';
+import Storage from './modules/storage.js';
+import Render from './modules/render.js';
+import {
+  DateTime,
+} from './node_modules/luxon/build/es6/luxon.js';
 
-Render.displayLibrary();
+const renderObj = new Render();
+renderObj.displayLibrary();
 
-const bookTitle = document.querySelector('#title');
-const bookAuthor = document.querySelector('#author');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
 const formButton = document.querySelector('.form');
 const bookList = document.querySelector('.bookList');
-
-// eslint-disable-next-line consistent-return
+/* eslint-disable consistent-return */
 formButton.addEventListener('submit', (e) => {
   e.preventDefault();
   const UL = document.querySelector('.bookList');
@@ -54,4 +58,5 @@ contactLi.addEventListener('click', () => {
 });
 
 const dynamicDate = document.querySelector('.date');
-dynamicDate.textContent = new Date().toLocaleString();
+
+dynamicDate.textContent = DateTime.now();
