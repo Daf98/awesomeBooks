@@ -9,13 +9,13 @@ class Storage {
     return library;
   }
 
-  static storeBooks(book) {
+  static storeBooks = (book) => {
     const bookArray = Storage.getBooks();
     bookArray.push(book);
     localStorage.setItem('library', JSON.stringify(bookArray));
   }
 
-  static removeBook(book) {
+  static removeBook = (book) => {
     const bookArray = Storage.getBooks();
     bookArray.forEach((arr) => {
       if (`"${arr.titleValue}" by ${arr.authorValue}`.trim() === book.trim()) {

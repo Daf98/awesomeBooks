@@ -1,12 +1,12 @@
 import Storage from './storage.js';
 
 class Render {
-  displayLibrary() {
+  displayLibrary = () => {
     const bookArray = Storage.getBooks();
     bookArray.forEach((book) => Render.renderData(book));
   }
 
-  static renderData(book) {
+  static renderData = (book) => {
     const template = `<li class="render-li">
       <div class="li__first"> <span>"${book.titleValue}"</span> by <span>${book.authorValue}</span></div>
       <button class="removeButton">Remove</button>
@@ -14,15 +14,15 @@ class Render {
     document.querySelector('.bookList').insertAdjacentHTML('afterbegin', template);
   }
 
-  static removUI(book) {
+  static removUI = (book) => {
     if (book.classList.contains('removeButton')) {
       book.parentNode.remove();
     }
   }
 
-  static clearField() {
-    let title = document.getElementById('title');
-    let author = document.getElementById('author');
+  static clearField = () => {
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
     title.value = '';
     author.value = '';
   }
