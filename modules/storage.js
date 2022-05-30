@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 class Storage {
   static getBooks() {
     let library;
@@ -10,13 +9,13 @@ class Storage {
     return library;
   }
 
-  static storeBooks(book) {
+  static storeBooks = (book) => {
     const bookArray = Storage.getBooks();
     bookArray.push(book);
     localStorage.setItem('library', JSON.stringify(bookArray));
   }
 
-  static removeBook(book) {
+  static removeBook = (book) => {
     const bookArray = Storage.getBooks();
     bookArray.forEach((arr) => {
       if (`"${arr.titleValue}" by ${arr.authorValue}`.trim() === book.trim()) {
@@ -26,3 +25,4 @@ class Storage {
     localStorage.setItem('library', JSON.stringify(bookArray));
   }
 }
+export default Storage;
