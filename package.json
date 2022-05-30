@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Daf98/awesomeBooks#readme",
   "devDependencies": {
+    "@types/luxon": "^2.3.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -28,5 +29,7 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "luxon": "^2.4.0"
+  }
 }
