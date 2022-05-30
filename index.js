@@ -1,9 +1,12 @@
 import Book from './modules/books.js';
 import Storage from './modules/storage.js';
 import Render from './modules/render.js';
-import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
+import {
+  DateTime
+} from './node_modules/luxon/build/es6/luxon.js';
 
-Render.displayLibrary();
+const renderObj = new Render();
+renderObj.displayLibrary();
 
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');

@@ -1,8 +1,7 @@
 import Storage from './storage.js';
-import Book from './books.js';
 
 class Render {
-  static displayLibrary() {
+  displayLibrary() {
     const bookArray = Storage.getBooks();
     bookArray.forEach((book) => Render.renderData(book));
   }
@@ -22,8 +21,10 @@ class Render {
   }
 
   static clearField() {
-    Book.titleValue = '';
-    Book.authorValue = '';
+    let title = document.getElementById('title');
+    let author = document.getElementById('author');
+    title.value = '';
+    author.value = '';
   }
 }
 export default Render;

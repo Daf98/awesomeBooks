@@ -1,11 +1,11 @@
 class Book {
-    titleValue;
+  titleValue;
 
-    authorValue;
+  authorValue;
 
-    constructor(titleValue, authorValue) {
-      this.titleValue = titleValue;
-      this.authorValue = authorValue;
-    }
+  constructor(titleValue, authorValue) {
+    this.titleValue = titleValue;
+    this.authorValue = authorValue;
+  }
 }
 export default Book;
