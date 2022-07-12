@@ -63,4 +63,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](https://www.mit.edu/) licensed.
+This project is [MIT](./MIT.md) licensed.
